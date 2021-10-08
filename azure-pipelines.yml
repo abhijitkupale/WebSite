@@ -7,7 +7,12 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  name: Web-Application
+  demands:
+  - Agent.Name -equals WebApplication-Agent-1
+  - msbuild
+  - visualstudio
+  - vstest
 
 variables:
   solution: '**/*.sln'
